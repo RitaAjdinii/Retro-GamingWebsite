@@ -1,13 +1,19 @@
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector(".nav-menu");
+const nav =document.querySelector("nav");
+const navToggle = document.querySelector(".nav-toggle");
+const linksContainer = document.querySelector(".links-container");
 
-hamburger.addEventListener("click",()=>{
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
+
+window.addEventListener("scroll",()=>{
+    const navHeight = nav.getBoundingClientRect().height;
+    const scrollHeight = window.pageYOffset;
+
+    if(scrollHeight>navHeight){
+        nav.classList.add("fixed-nav");
+    }else{
+        nav.classList.remove("fixed-nav");
+    }
 });
 
-
-document.querySelectorAll(".nav-link").forEach(n=>n.addEventListener("click",()=>{
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-}));
+navToggle.addEventListener("click",()=>{
+    linksContainer.classList.toggle("show-links");
+});
