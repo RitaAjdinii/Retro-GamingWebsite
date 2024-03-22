@@ -217,3 +217,12 @@ to{
   opacity:1;
 }
 }
+
+.footer{
+  margin-top:200px;
+  height:200px;
+  background:rgb(113, 163, 185);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
