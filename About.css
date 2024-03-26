@@ -1,3 +1,30 @@
+:root{
+  --clr-yellow-1:#ffd700;
+  --clr-yellow-2:#f67607;
+  --clr-grey-1:rgb(113, 163, 185);
+  --clr-grey-2:rgba(39, 69, 85, 0.65);
+  --clr-blue-1:blue;
+  --clr-black-1:black;
+  --clr-white-1:white;
+  --clr-background:blue;
+
+  --ff-1:sans-serif;
+  --ff-2:"Press Start 2P", system-ui;
+  --ff-3:"Space Mono", monospace;
+
+  --ff-size-1:1.0rem;
+
+  --padding-1:1rem 1.5rem;
+  --transition:all 0.3s linear;
+  --letter-spacing:0.25rem;
+  --line-height:1.5;
+  --index:1000;
+}
+
+html{
+height: 100%;
+}
+
 *,::before,::after{
   margin:0;
   padding:0;
@@ -5,10 +32,20 @@
 }
 
 
+
 body{
-background-color: blue;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  background-color: var(--clr-background);
 }
 
+
+p{
+font-size: var(--ff-size-1);
+line-height: var(--line-height);
+}
 ul{
   list-style-type: none;
 }
@@ -17,41 +54,31 @@ a{
   text-decoration: none;
 }
 
-img:not(.logo){
-  width:100%;/*Applies mostlty to the background image*/
-}
-
-img{
-  display: block;
-}
-
 @media screen and (min-width:800px){
 
   h1 {
       font-size: 4rem;
-    }
+  }
     h2 {
       font-size: 2.5rem;
-    }
-    h3 {
+  }
+  
+  h3 {
       font-size: 1.75rem;
-    }
-    h4 {
-      font-size: 1rem;
-    }
+  }
 
   body{
-      font-size: 1rem;
+      font-size: var(--ff-size-1);
   }
 }
 
 /*Scroll---*/
 
 nav{
-  padding:1rem 1.5rem;
-  border: 3px solid rgba(39, 69, 85, 0.65);
-  z-index: 1000;
-  background:rgb(113, 163, 185);
+  padding:var(--padding-1);
+  border: 3px solid var(--clr-grey-2);
+  z-index: var(--index);
+  background:var(--clr-grey-1);
 }
 
 .fixed-nav{
@@ -59,76 +86,65 @@ nav{
   top:0;
   left:0;
   width:100%;
-  z-index: 1000;
-  background:rgb(113, 163, 185);
+  z-index: var(--index);
+  background:var(--clr-grey-1);
 }
-
-
 
 .nav-header{
   display: flex;
-  align-items: center;
   justify-content:flex-end;
+  align-items: center;
 }
-
 
 .nav-toggle{
   background: transparent;
-  transition: all 0.3s linear;
+  transition: var(--transition);
   cursor: pointer;
 }
 
-
-
 .nav-toggle .bar{
-  background-color: #ffd700;
+  background-color: var(--clr-yellow-1);
   height:6px;
   width:30px;
   margin:5px 0;
-  border:2px solid #f67607;
-}
-
-.logo{
-  height:50px;
+  border:2px solid var(--clr-yellow-2);
 }
 
 .links-container{
   height:0;
   overflow: hidden;
-  transition:all 0.3s linear;
+  transition:var(--transition);
 }
 
 .links .scroll-link{
   display: block;
-  color: #ffd700;
-  font-size: 1.1rem;
+  color: var(--clr-yellow-1);
+  font-size: var(--ff-size-1);
   padding:0.75rem 0; 
   font-weight: bold;
-  font-family: "Press Start 2P", sans-serif;
+  font-family: var(--ff-2);
   text-transform: uppercase;
-  letter-spacing: 0.25rem; 
-  transition: all 100ms linear; 
+  letter-spacing: var(--letter-spacing); 
+  transition: var(--transition); 
 }
 
 .show-links{
   height:200px;
 }
 
-
 @media screen and (min-width:1100px){
   nav{
-    background:rgb(113, 163, 185);
-    z-index:1000;
-    border: 3px solid rgba(0, 0, 0, 0.65);
+    background:var(--clr-grey-1);
+    z-index:var(--index);
   }
 
   .nav-center{
+      display: flex;
+      justify-content:flex-end;
+      align-items: center;
       width:90vw;
       max-width: 1170px;
-      margin:0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      margin: 0 auto;
   }
 
    .nav-header {
@@ -147,9 +163,9 @@ nav{
 
     .links .scroll-link{
       display: block;
-      font-size: 1.1rem;
-      letter-spacing: 0.25rem;
-      transition:all 0.3s linear;
+      font-size:var(--ff-size-1);
+      letter-spacing: var(--letter-spacing);
+      transition:var(--transition);
       margin:0 1rem;
       font-weight: bold;
       padding:0;
@@ -158,71 +174,58 @@ nav{
     .links .scroll-link:hover{
       text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.5);
       -webkit-text-stroke-width: 1px; /* Set the width of the black border */
-      -webkit-text-stroke-color: #f67607;
+      -webkit-text-stroke-color: var(--clr-yellow-2);
   }
 }
 
-@media (max-width:800px) {
-.links .scroll-link:active{
-  text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.5);
-  -webkit-text-stroke-width:1px; /* Set the width of the black border */
-  -webkit-text-stroke-color: rgb(254, 140, 0);
-  font-size: 1.2rem;
-  transition:all 50ms linear;
-}
-}
-
-
-
-main{
-height:60vh;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.about{
-padding:10%;
-height:80%;
-}
-
-.about h2{
-font-family: "Press Start 2P", sans-serif;
-text-align: center;
-margin:10px;
-color: white;
-
-}
-
-.text{
-font-family: "Press Start 2P", sans-serif;
-line-height: 1.5;
-}
-
-
-.text:hover{
-color: rgba(255, 255, 255, 0.618);
-cursor: pointer;
-}
-
-.fade{
-animation:fade 2s ;
-}
-
-@keyframes fade{
-from{
-  opacity:0;
-}
-to{
-  opacity:1;
-}
-}
-
-.footer{
-  margin-top:200px;
-  height:200px;
-  background:rgb(113, 163, 185);
+#main{
+  height:auto;
+  width:100%;
+  margin:100px 0 100px 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+#main .title{
+  color: var(--clr-white-1);
+  font-family: var(--ff-2);
+  text-align: center;
+  margin:20px 0;
+}
+
+#main .section{
+  height:auto;
+  width: 70%;
+  padding:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main .section p{
+  font-family: var(--ff-2);
+  color:var(--clr-black-1);
+}
+
+#main .section p:hover{
+  color: rgba(255, 255, 255, 0.448);
+  cursor: pointer;
+}
+
+#footer{
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  height:100px;
+  border:3px solid green;
+  margin-top:auto;
+}
+
+#footer p{
+  font-weight: bold;
+  font-family: var(--ff-3);
 }
